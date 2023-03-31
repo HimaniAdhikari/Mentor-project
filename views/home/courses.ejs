@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Course Details - Spectra Bootstrap Template</title>
+  <title>Courses</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,99 +38,77 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+  <%- include('../partials/nav.ejs') %>
 
-      <div><a href="index.html" class="logo me-auto"><img src="assets/img/logo.jpg" alt="" class="img-fluid"></a></div>
-      <div><h1 class="logo me-auto"><a href="index.html">spectra</a></h1></div>
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a class="active" href="courses.html">Courses</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav_btns">
-          <!--Theme change button-->
-          <i class="uil uil-moon change-theme" id="theme-button"></i>
-          <div class="nav_toggle" id="nav-toggle">
-              <i class="uil uil-apps "></i>
-          </div>
-        </div>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="courses.html" class="get-started-btn">Get Started</a>
-
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
+  <main id="main" data-aos="fade-in">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs" data-aos="fade-in">
+    <div class="breadcrumbs">
       <div class="container">
-        <h2>Course Details</h2>
-        <p>Here you will find the study material of the B.TECH CSE course </p>
+        <h2>Courses</h2>
+        <p>Welcome to the Spectra course page! Here you'll find everything you need to succeed in this course, including textbooks, practice exams, and more.</p>
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Cource Details Section ======= -->
-    <section id="course-details" class="course-details">
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
       <div class="container" data-aos="fade-up">
 
-        <div class="row">
-          <div class="col-lg-8">
-            <h3>BCA study material of first year(first semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
-          <div class="col-lg-8">
-            <h3>BCA study material of first year(second semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <a href="/course/btech-CSE"><img src="assets/img/course-1.jpg" class="img-fluid" alt="..."></a>
+              <div class="course-content">
+               
+                <h3><a href="/course/btech-CSE">B.TECH</a></h3>
+                <p>Computer Science and Engineering</p>
+                
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
 
-          <div class="col-lg-8">
-            <h3>BCA study material of second year(third semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="course-item">
+              <a href="/course/btech-ECE"><img src="assets/img/course-2.jpg" class="img-fluid" alt="..."></a>
+              <div class="course-content">
+                
 
-          <div class="col-lg-8">
-            <h3>BCA study material of second year(fourth semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+                <h3><a href="/course/btech-ECE">B.TECH</a></h3>
+                <p>Electronics and Communications Engineering</p>
+                
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
 
-          <div class="col-lg-8">
-            <h3>BCA study material of third year(fifth semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="course-item">
+              <a href="/course/btech-AI"><img src="assets/img/course-3.jpg" class="img-fluid" alt="..."></a> 
+              <div class="course-content">
+                
+                <h3><a href="/course/btech-AI">B.TECH</a></h3>
+                <p>Artificial Intelligence</p>
+               
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
 
-          <div class="col-lg-8">
-            <h3>BCA study material of third year(sixth semester)</h3>
-            <p>
-              links for study material will be added there
-            </p>
-          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="course-item">
+              <a href="/course/bca"><img src="assets/img/course-4.jpg" class="img-fluid" alt="..."></a>
+              <div class="course-content">
+                
+                <h3><a href="/course/bca">BCA</a></h3>
+                
+               
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
 
         </div>
 
       </div>
-    </section><!-- End Cource Details Section -->
-
-   
+    </section><!-- End Courses Section -->
     
   </main><!-- End #main -->
 
@@ -169,10 +147,7 @@
           &copy; Copyright <strong><span>SPECTRA</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Spectra-free-education-bootstrap-theme/ -->
+        
           Made with <strong>❤️</strong>
         </div>
       </div>
