@@ -1,13 +1,14 @@
 const express = require("express");
 const CourseController = require("../controller/courses");
 const router = express.Router();
+const isAuth  = require("../middleware/iaAuth");
 
-router.get("/btech-CSE", CourseController.getBtechCSI);
+router.get("/btech-CSE",isAuth ,CourseController.getBtechCSI);
 
-router.get("/btech-ECE", CourseController.getBtechECE);
+router.get("/btech-ECE",isAuth, CourseController.getBtechECE);
 
-router.get("/btech-AI", CourseController.getBtechAI);
+router.get("/btech-AI",isAuth, CourseController.getBtechAI);
 
-router.get("/bca", CourseController.getBCA);
+router.get("/bca",isAuth, CourseController.getBCA);
 
 module.exports = router;

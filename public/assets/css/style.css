@@ -214,7 +214,6 @@ h6 {
 }
 
 .get-started-btn:hover {
-  text-decoration: none;
   background: #72dfee;
   color: #fff;
 }
@@ -254,7 +253,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  align-content: center;
+  padding: 10px 20px 10px 20px;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -274,8 +274,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  text-decoration: none;
   color: #3ae9fd;
+  text-decoration: none;
 }
 
 .navbar .dropdown ul {
@@ -477,7 +477,30 @@ h6 {
   overflow: hidden;
 }
 
-.box::before{
+.add_box{
+  position: relative;
+  width: 680px;
+  height: 590px;
+  background:#ebe8e8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.field-row{
+  width: 100%;
+  clear: both;
+  display: block;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.field-col{
+  width: 50%;
+  float: left;
+  display: block;
+  padding: 10px;
+}
+
+.box::before,.add_box::before{
   content: '';
   position: absolute;
   top: -50%;
@@ -491,7 +514,7 @@ h6 {
   animation: animate 6s linear infinite;
 }
 
-.box::after{
+.box::after,.add_box::after{
   content: '';
   position: absolute;
   top: -50%;
@@ -512,9 +535,19 @@ h6 {
   display: flex;
   justify-content: flex-end;
 }
+.add_box .password_checkbox{
+  width:100%;
+  font-size: 16px;
+  display: flex;
+  
+}
 
 .box .password_checkbox p{
   margin: 2px 0 0 8px;
+}
+
+.add_box .password_checkbox p{
+  margin: 2px 0 0 2px;
 }
 .borderLine{
   position: absolute;
@@ -560,7 +593,7 @@ h6 {
   }
 }
 
-.box form{
+.box form ,.add_box form{
   position: absolute;
   inset:4px;
   background: #ebe9e9;
@@ -571,7 +604,7 @@ h6 {
   flex-direction: column;
 }
 
-.box form h2{
+.box form h2, .add_box form h2{
   color: #000000;
   font-weight: 800;
   text-align: center;
@@ -584,7 +617,25 @@ h6 {
   margin-top: 35px;
 }
 
-.box form .inputBox input{
+.add_box form .inputBox{
+  position: relative;
+  width: 400px;
+  margin-top: 35px;
+
+}
+
+
+.file::-webkit-file-upload-button{
+  background-image:linear-gradient(rgb(182, 52, 182),rgb(238, 117, 137));
+  color: white;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.box form .inputBox input, .add_box form .inputBox input{
   position: relative;
   width: 100%;
   padding: 20px 10px 10px;
@@ -599,7 +650,7 @@ h6 {
   z-index: 10;
 }
 
-.box form .inputBox span {
+.box form .inputBox span,.add_box form .inputBox span {
   position: absolute;
   left: 0;
   padding: 20px 0px 10px;
@@ -611,7 +662,9 @@ h6 {
 }
 
 .box form .inputBox input:valid ~ span,
-.box form .inputBox input:focus ~ span
+.box form .inputBox input:focus ~ span,
+.add_box form .inputBox input:valid ~ span,
+.add_box form .inputBox input:focus ~ span
 {
   color: #635f5f;
   font-size: 0.75em;
@@ -630,13 +683,26 @@ h6 {
   transition: 0.5s;
   pointer-events: none;
 }
-
+.add_box form .inputBox i{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 65%;
+  height: 2px;
+  background:#d7c9d3;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  pointer-events: none;
+}
 .box form .inputBox input:valid ~i,
-.box form .inputBox input:focus ~i{
-  height:44px;
+.box form .inputBox input:focus ~i,
+.add_box form .inputBox input:valid ~i,
+.add_box form .inputBox input:focus ~i{
+  height:35px;
 }
 
-.box form  input[type="submit"]{
+.box form  input[type="submit"],.add_box form input[type="submit"]{
   border: none;
   outline: none;
   padding: 9px 25px;
@@ -649,7 +715,7 @@ h6 {
   margin-top: 10px;
 }
 
-.box form  input[type="submit"]:active{
+.box form  input[type="submit"]:active,.add_box form input[type="submit"]:active{
   opacity: 0.8;
 }
 
@@ -663,14 +729,29 @@ h6 {
   color: #fff;
   cursor: pointer;
   border-radius: 50px;
-  
 }
+.add_box .add_button {
+  margin: auto;
+  width: 60%;
+  background:linear-gradient(45deg , rgb(135 129 255), rgb(255 110 110)); ;
+  border: none;
+  padding: 10px 16px;
+  margin-top:30px ;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
 .box .login_button:active ,.signup_button:active{
   transform: scale(0.9,0.9,0.9);
 }
 
+.add_box .add_button:active{
+  transform: scale(0.9,0.9,0.9);
+}
 .box .login_link, .signup_link{
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 30px;
   width: 100%;
   text-align: center;
@@ -685,22 +766,24 @@ h6 {
   text-underline-position: under;
 }
 
-.box .forget_password{
+.box .add_box .forget_password{
   margin-top: 20px;
   display: inline-block;
   transition: 0.2s;
 }
 
-.box .forget_password a{
+.box .add_box .forget_password a{
   color: #000;
   font-size: 18px;
   text-decoration: none;
 }
 
-.box .forget_password:hover{
+.box .add_box .forget_password:hover{
   text-decoration: underline;
   text-underline-position: under;
 }
+
+
 
 /*--------------------------------------------------------------
 # Hero Section

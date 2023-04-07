@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title> Home</title>
+  <title> - Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,14 +38,45 @@
 
 <body>
 
-  <%- include('../partials/nav.ejs') %>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <!--<div><a href="index.html" class="logo me-auto"><img src="assets/img/logo.jpg" alt="" class="img-fluid"></a></div>-->
+      <div><h1 class="logo me-auto"><a href="index.html">SEST.JH</a></h1></div>
+      
+      
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <a href="login.html" class="get-started-btn">Sign-In</a>
+        </ul>
+        
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      
+      
+      <div class="nav_btns">
+        <!--Theme change button-->
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+        <div class="nav_toggle" id="nav-toggle">
+            <i class="uil uil-apps "></i>
+        </div>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
   
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Learning Today,<br>Leading Tomorrow</h1>
       <h2>It's not just about ideas it's about making ideas happen!</h2>
-      <a href="/courses" class="btn-get-started">Get Started</a>
+      <a href="courses.html" class="btn-get-started">Get Started</a>
     </div>
   </section><!-- End Hero -->
 
