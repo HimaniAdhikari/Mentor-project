@@ -218,6 +218,10 @@ h6 {
   color: #fff;
 }
 
+.user-error-message{
+  color:#cc0000;
+}
+
 @media (max-width: 768px) {
   .get-started-btn {
     margin: 0 15px 0 0;

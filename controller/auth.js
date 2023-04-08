@@ -2,11 +2,11 @@ const User = require("../model/user");
 const bcrypt = require("bcrypt");
 
 exports.getLoginPage = (req,res,next)=>{
-    res.render("auth/login");
+    res.render("auth/login", {emailError: req.flash("emailError"), passwordError: req.flash("passwordError")});
 };
 
 exports.getRegisterPage = (req,res,next)=>{
-    res.render("auth/sign-up");
+    res.render("auth/sign-up",{error: req.flash("error")});
 };
 
 exports.postRegisterPage = (req,res,next) =>{
@@ -16,7 +16,8 @@ exports.postRegisterPage = (req,res,next) =>{
     User.findOne({email: email}).then(
         user=>{
             if(user){
-                res.redirect("/login")
+                req.flash("error", "This email id is already exist");
+                res.redirect("/signup")
             }
             else{
                 bcrypt.hash(password, 12).then(
@@ -54,11 +55,13 @@ exports.postLoginPage = (req,res,next)=>{
                     res.redirect("/");
                 }
                 else{
+                    req.flash("passwordError", "Enter the correct password");        
                     res.redirect("/login");
                 }
             }).catch(err=>{console.log(err);})
         }
         else{
+            req.flash("emailError", "Enter the correct email id");
             res.redirect("/login");
         }
     }).catch(err=>{console.log(err);})

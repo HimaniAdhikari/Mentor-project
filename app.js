@@ -4,6 +4,7 @@ const path = require("path");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const mongoDbStore = require("connect-mongodb-session")(session);
+const flash = require("connect-flash");
 
 const app = express();
 app.set("views", "views");
@@ -30,16 +31,19 @@ app.use(
     },
   })
 );
+app.use(flash());
 
 const HomeRoutes = require("./routes/home");
 const AuthRoutes = require("./routes/auth");
 const CoursesRoutes = require("./routes/courses");
 const AdminRoutes = require("./routes/admin");
+const CSEsemRotutes = require("./routes/CSEsemester");
 
 app.use(HomeRoutes);
 app.use(AuthRoutes);
 app.use(AdminRoutes);
 app.use("/course", CoursesRoutes);
+app.use("/course/btech-CSE", CSEsemRotutes);
 
 mongoose.connect(MONGODB_URI).then((result) => {
   app.listen(3000, (err) => {

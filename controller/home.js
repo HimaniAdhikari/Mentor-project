@@ -3,7 +3,7 @@ exports.getHomePage = (req,res,next)=>{
 };
 
 exports.getCoursepage = (req,res,next)=>{
-    res.render("home/courses", {path: "/courses",  isAuthenticated: req.session.loggedIn,user:req.session.user});
+    res.render("home/courses", {path: "/courses",  isAuthenticated: req.session.loggedIn,user:req.session.user, errorMessage: req.flash("error")});
 };
 
 exports.getContactPage = (req,res,next)=>{

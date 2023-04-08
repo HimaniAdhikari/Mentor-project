@@ -44,13 +44,17 @@
                 <span>Email</span>
                 <i></i>
             </div>
-
+            <% if(emailError.length != 0) { %>
+            <p class="user-error-message"><%= emailError %></p>
+            <% } %>
             <div class="inputBox">
                 <input name="password" type="password" required="required">
                 <span>Password</span>
                 <i class="fa-solid fa-eye" id="eye"></i>
             </div>
-
+            <% if(passwordError.length !=0) { %>
+                <p class="user-error-message"><%= passwordError %></p>
+            <% } %>
             <div class="password_checkbox"><input type="checkbox" ><p>Show Password</p></div>
 
             <div class="forget_password"><a href="#">Forget Password?</a></div>
