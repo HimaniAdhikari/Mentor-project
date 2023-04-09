@@ -1024,6 +1024,7 @@ section {
 .courses .course-item {
   border-radius: 5px;
   border: 1px solid #eef0ef;
+  margin-top: 20px;
 }
 
 .courses .course-content {
