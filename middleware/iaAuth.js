@@ -4,7 +4,7 @@ module.exports = (req,res,next)=>{
         return next();
     }
     else{
-        alert( "Please login/signup to see the notes inside. ");
+        req.flash("error","Please signup/login to access the notes");
         return res.redirect("/courses");
     }
 }

@@ -56,7 +56,9 @@
                 <span>Email</span>
                 <i></i>
             </div>
-
+            <% if(error.length != 0) { %>
+                <p class="user-error-message"><%= error %></p>
+            <% } %>
             <button class="signup_button" type="submit">Create Account</button>
             <div class="login_link"><a href="/login">Already have an Account ?</a></div>
             

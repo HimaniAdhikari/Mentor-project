@@ -218,6 +218,10 @@ h6 {
   color: #fff;
 }
 
+.user-error-message{
+  color:#cc0000;
+}
+
 @media (max-width: 768px) {
   .get-started-btn {
     margin: 0 15px 0 0;
@@ -1020,6 +1024,7 @@ section {
 .courses .course-item {
   border-radius: 5px;
   border: 1px solid #eef0ef;
+  margin-top: 20px;
 }
 
 .courses .course-content {

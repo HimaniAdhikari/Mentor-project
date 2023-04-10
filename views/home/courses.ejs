@@ -45,7 +45,11 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
+        <% if (errorMessage.length != 0 ) { %>
+        <h2 class="user-error-message"><%= errorMessage %></h2>
+        <% } else { %>
         <h2>Courses</h2>
+        <% } %>
         <p>Welcome to the Spectra course page! Here you'll find everything you need to succeed in this course, including textbooks, practice exams, and more.</p>
       </div>
     </div><!-- End Breadcrumbs -->
