@@ -1,4 +1,4 @@
-
+// const gfs = require("../app").gfs;
 const Notes = require("../model/notes");
 
 exports.getAddNotesPage = (req,res,next) =>{
@@ -6,14 +6,14 @@ exports.getAddNotesPage = (req,res,next) =>{
 }   
 
 exports.postAddNotesPage = (req,res,next)=>{
-    const course = req.body.course ;
-    const semester = req.body.semester;
-    const subject = req.body.subject;
-    const file = req.file.filename;
-    Notes.find({file: file}).then((res)=>{
-        if(res){
+    const course = req.body.course.toLowerCase() ;
+    const semester = req.body.semester.toLowerCase();
+    const subject = req.body.subject.toLowerCase();
+    const file = req.file.filename.toLowerCase();
+    Notes.findOne({file: file}).then((result)=>{
+        if(result){
             console.log("Already exist with this particular file name");
-            return res.redirect("/admin/add-notes");
+            return res.redirect("/add-notes");
         }
         else{
             const notes = new Notes({
@@ -22,13 +22,14 @@ exports.postAddNotesPage = (req,res,next)=>{
                 subject:subject,
                 file:file
             });
+            
             return notes.save();
         }
     }).then((notes =>{
+        res.redirect(`/course/${course}/${semester}/${subject}`);
 
-    }))
-    Notes.save()
-    console.log(req.file.filename);
+    }));
+    // console.log(req.file.filename);
     // const 
-    res.redirect("/");
+
 };

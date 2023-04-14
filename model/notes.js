@@ -6,7 +6,7 @@ const Notes = new schema({
         type:String,
         required:true
     },
-    semster:{
+    semester:{
         type:String,
         required:true
     },
