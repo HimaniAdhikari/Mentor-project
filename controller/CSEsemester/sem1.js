@@ -1,10 +1,5 @@
 // gfs = require("../../middleware/gfs");
 const Notes = require("../../model/notes");
-const mongoose = require("mongoose");
-const Grid = require("gridfs-stream");
-const MONGODB_URI =
-  "mongodb+srv://admin-ayush:ayush123@cluster0.itvnq.mongodb.net/NotesProject";
-
 
 exports.getNotesPage = (req, res, next) => {
   // console.log("abc");
@@ -15,26 +10,20 @@ exports.getNotesPage = (req, res, next) => {
   Notes.find({ course: course, semester: semester, subject: subject }).then(
     (result) => {
       if (result) {
-        mongoose.connect(MONGODB_URI).then((mongo) => {
-          let gfs = Grid(mongo.connections[0].db, mongoose.mongo);
-          gfs.collection('uploads');
-          console.log(gfs.files);
-    
-          gfs.files.find().toArray((err, files) => {
-            if (err) console.log("No such file");
-            else {
-            //   res.render("semesters/notes", {
-            //     path: "/courses",
-
-            //     isAuthenticated: req.session.loggedIn,
-            //     user: req.session.user,
-            //   });
-              res.json({ files });
-            }
+          return res.render('semesters/notes',{
+            files: result,
+            subject: subject
           });
+      }
+      else{
+        return res.render('semesters/notes',{
+          files: [],
+          subject: subject      
         });
       }
     }
-  );
+  ).catch(err => {
+    console.log(err);
+  });
   // console.log(gfs.files.find);
 };

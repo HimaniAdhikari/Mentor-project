@@ -30,7 +30,7 @@ const storage = new GridFsStorage({
       return new Promise((resolve, reject) => {
           const filename = file.originalname;
           const fileInfo = {
-            filename: filename,
+            filename: filename.toLowerCase(),
             bucketName: 'uploads'
           };
           resolve(fileInfo);
@@ -73,6 +73,7 @@ const AuthRoutes = require("./routes/auth");
 const CoursesRoutes = require("./routes/courses");
 const AdminRoutes = require("./routes/admin");
 const CSEsemRoutes = require("./routes/CSEsemester");
+const NotesRoutes = require("./routes/notes");
 // const CSEsem1Routes = require("./routes/CSEsemester/sem1");
 const isAuth = require("./middleware/iaAuth");
 const Notes = require("./model/notes");
@@ -84,44 +85,28 @@ app.use(AdminRoutes);
 app.use("/course", CoursesRoutes);
 
 app.use("/course/Btech-CSE", CSEsemRoutes);
+app.use("/course",NotesRoutes)
 // app.use("/course", CSEsem1Routes);
 
 // Init gfs
 let gfs, GridFSBucket;
-app.get("/course/:course/:semester/:subject", isAuth, (req, res, next) => {
+app.get("/course/:course/:semester/:subject/:filename", isAuth, (req, res, next) => {
   const course = req.params.course.toLowerCase();
   const semester = req.params.semester.toLowerCase();
   const subject = req.params.subject.toLowerCase();
-  console.log(course, semester, subject);
+  const filename = req.params.filename.toLowerCase();
   Notes.find({ course: course, semester: semester, subject: subject })
     .then((result) => {
       if (result.length > 0) {
         // console.log(gfs.find());
-        const cursor = gfs.files.findOne({filename: 'ques.pdf'}).then(
+        gfs.files.findOne({filename: filename}).then(
           file =>{
-            // console.log(file);
+            console.log(file);
             const readstream = GridFSBucket.openDownloadStream(file._id);
-            console.log(readstream);
             readstream.pipe(res);
           }
-        );
+        ).catch(err=>{console.log(err);});
         
-        // cursor.forEach(doc => console.log(doc));
-        // gfs.files.find().toArray((err, files) => {
-        //   // if (err) console.log(err);
-        //   console.log(files);
-        //   if (!files || files.length === 0)
-        //     return res.status(404).json({ err: 'No file exists' });
-        //   else {
-        //     //   res.render("semesters/notes", {
-        //     //     path: "/courses",
-        //     //     isAuthenticated: req.session.loggedIn,
-        //     //     user: req.session.user,
-        //     //   });
-        //     console.log(files);
-            // res.json({ data: cursor });
-        //   }
-        // });
       } else {
         res.json({ err: "No data found" });
       }
@@ -132,13 +117,6 @@ app.get("/course/:course/:semester/:subject", isAuth, (req, res, next) => {
       res.status(500).json({ err: "Internal Server Error" });
     });
 });
-
-
-// const connect = mongoose.createConnection(MONGODB_URI);
-// connect.once('open', ()=>{
-//   gfs = Grid(connect.db, mongoose.mongo);
-//   gfs.collection('uploads');
-// })
 
 
 mongoose.connect(MONGODB_URI).then((result) => {
