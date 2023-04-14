@@ -5,13 +5,15 @@
     <div class="log">
         <div class="add_box">
             <span class="borderLine"></span>
-            <form >
+            <form method="post" enctype="multipart/form-data" action="/admin/add-notes" >
                 <h2>Add Notes</h2>
 
                 <div class="field-row">
                     <div class="field-col">
                         <div class="inputBox">
-                            <input type="text" required="required">
+                            <input  name="course" type="text" required="required">
+                                <!-- <option value="btech-CSE">BTECH computer science and Engineering</option> -->
+                            </select>
                             <span>Course</span>
                             <i></i>
                         </div>
@@ -19,7 +21,7 @@
 
                     <div class="field-col">
                         <div class="inputBox">
-                            <input type="text" required="required">
+                            <input name="semester" type="text" required="required">
                             <span>Semester</span>
                             <i></i>
                         </div>
@@ -27,7 +29,7 @@
 
                     <div class="field-col">
                         <div class="inputBox">
-                            <input type="text" required="required">
+                            <input name="subject" type="text" required="required">
                             <span>Subject</span>
                             <i></i>
                         </div>
@@ -35,7 +37,7 @@
 
                     <div class="field-col ">
                         <div class="inputBox">
-                            <input type="file" class="file" >
+                            <input name="file" type="file" class="file" >
                         </div>
                     </div>
                 </div>
