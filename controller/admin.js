@@ -1,5 +1,6 @@
 // const gfs = require("../app").gfs;
 const Notes = require("../model/notes");
+const upload = require("../middleware/upload");
 
 exports.getAddNotesPage = (req,res,next) =>{
     res.render("admin/add-notes",{path:'admin/add-notes', isAuthenticated: req.session.loggedIn, user:req.session.user});
@@ -22,6 +23,7 @@ exports.postAddNotesPage = (req,res,next)=>{
                 subject:subject,
                 file:file
             });
+            upload.single('file');
             
             return notes.save();
         }

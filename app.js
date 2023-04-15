@@ -118,20 +118,25 @@ app.get("/course/:course/:semester/:subject/:filename", isAuth, (req, res, next)
     });
 });
 
+const connection = mongoose.createConnection(MONGODB_URI);
+
+connection.once('open', ()=>{
+  GridFSBucket = new mongoose.mongo.GridFSBucket(connection.db,{
+    bucketName:"uploads"
+  });
+  // GridFSBucket.openDownloadStream
+  // cur = gfs.find({filename: 'ques.pdf'}).then(file=>{console.log(file);});
+  // cur.forEach(docs=>{console.log(docs);})
+  // console.log(mongoose.mongo);
+  gfs = Grid(connection.db, mongoose.mongo);
+  gfs.collection('uploads');
+})
 
 mongoose.connect(MONGODB_URI).then((result) => {
   
   // console.log(result.connections[0].db);
   // module.exports = gfs;
-  GridFSBucket = new mongoose.mongo.GridFSBucket(result.connections[0].db,{
-    bucketName:"uploads"
-  });
-  GridFSBucket.openDownloadStream
-  // cur = gfs.find({filename: 'ques.pdf'}).then(file=>{console.log(file);});
-  // cur.forEach(docs=>{console.log(docs);})
-  // console.log(mongoose.mongo);
-  gfs = Grid(result.connections[0].db, mongoose.mongo);
-  gfs.collection('uploads');
+  
   // gfs.createReadStream
   // const cur = gfs.files.find();
   // cur.forEach(doc => console.log(doc));

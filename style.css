@@ -218,10 +218,6 @@ h6 {
   color: #fff;
 }
 
-.user-error-message{
-  color:#cc0000;
-}
-
 @media (max-width: 768px) {
   .get-started-btn {
     margin: 0 15px 0 0;
@@ -257,8 +253,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-content: center;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 0 10px 30px;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -279,7 +274,6 @@ h6 {
 .navbar .active:focus,
 .navbar li:hover>a {
   color: #3ae9fd;
-  text-decoration: none;
 }
 
 .navbar .dropdown ul {
@@ -490,7 +484,6 @@ h6 {
   overflow: hidden;
 }
 
-
 .field-row{
   width: 100%;
   clear: both;
@@ -504,7 +497,6 @@ h6 {
   display: block;
   padding: 10px;
 }
-
 
 .box::before,.add_box::before{
   content: '';
@@ -541,20 +533,13 @@ h6 {
   display: flex;
   justify-content: flex-end;
 }
-.add_box .password_checkbox{
-  width:100%;
-  font-size: 16px;
-  display: flex;
-  
-}
+
 
 .box .password_checkbox p{
   margin: 2px 0 0 8px;
 }
 
-.add_box .password_checkbox p{
-  margin: 2px 0 0 2px;
-}
+
 .borderLine{
   position: absolute;
   top: 0;
@@ -627,7 +612,6 @@ h6 {
   position: relative;
   width: 400px;
   margin-top: 35px;
-
 }
 
 
@@ -641,7 +625,7 @@ h6 {
   font-size: 14px;
 }
 
-.box form .inputBox input, .add_box form .inputBox input{
+.box form .inputBox input{
   position: relative;
   width: 100%;
   padding: 20px 10px 10px;
@@ -655,7 +639,20 @@ h6 {
   transition: 0.5s;
   z-index: 10;
 }
-
+.add_box form .inputBox input{
+  position: relative;
+  width: 100%;
+  padding: 24px 10px 10px;
+  background:transparent;
+  outline: none;
+  border:none;
+  box-shadow: none;
+  color:#23242a ;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
 .add_box form .inputBox select{
   position: relative;
   background:transparent;
@@ -683,21 +680,10 @@ h6 {
   transition: 0.5s;
 }
 
-.box form .inputBox span,.add_box form .inputBox span {
-  position: absolute;
-  left: 0;
-  padding: 20px 0px 10px;
-  pointer-events: none;
-  color: #8f8f8f;
-  font-size: 1em;
-  letter-spacing: 0.05em;
-  transition: 0.5s;
-}
-
 .box form .inputBox input:valid ~ span,
 .box form .inputBox input:focus ~ span,
-.add_box form .inputBox input:valid ~ span,
-.add_box form .inputBox input:focus ~ span
+.add_box form .inputBox select:valid ~ option,
+.add_box form .inputBox select:focus ~ option
 {
   color: #635f5f;
   font-size: 0.75em;
@@ -730,8 +716,8 @@ h6 {
 }
 .box form .inputBox input:valid ~i,
 .box form .inputBox input:focus ~i,
-.add_box form .inputBox input:valid ~i,
-.add_box form .inputBox input:focus ~i{
+.add_box form .inputBox select:valid ~i,
+.add_box form .inputBox select:focus ~i{
   height:35px;
 }
 
@@ -799,19 +785,19 @@ h6 {
   text-underline-position: under;
 }
 
-.box .add_box .forget_password{
+.box  .forget_password{
   margin-top: 20px;
   display: inline-block;
   transition: 0.2s;
 }
 
-.box .add_box .forget_password a{
+.box  .forget_password a{
   color: #000;
   font-size: 18px;
   text-decoration: none;
 }
 
-.box .add_box .forget_password:hover{
+.box  .forget_password:hover{
   text-decoration: underline;
   text-underline-position: under;
 }
@@ -1053,7 +1039,6 @@ section {
 .courses .course-item {
   border-radius: 5px;
   border: 1px solid #eef0ef;
-  margin-top: 20px;
 }
 
 .courses .course-content {

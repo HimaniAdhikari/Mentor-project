@@ -1,4 +1,5 @@
 <%- include('../partials/courses/head.ejs') %>
+
 <body>
 
 <div class="flog">
@@ -11,33 +12,88 @@
                 <div class="field-row">
                     <div class="field-col">
                         <div class="inputBox">
-                            <input  name="course" type="text" required="required">
-                                <!-- <option value="btech-CSE">BTECH computer science and Engineering</option> -->
+                            <select required="required" name="course" id="format">
+                                <option selected disabled>Choose a course</option>
+                                <option value="btech-cse">B.TECH -CSE</option>
+                                <option value="btech-ECE">B.TECH -ECE</option>
+                                <option value="btech-AI">B.TECH -AI</option>
+                                <option value="BCA">BCA</option>
                             </select>
-                            <span>Course</span>
                             <i></i>
                         </div>
                     </div>
 
                     <div class="field-col">
                         <div class="inputBox">
-                            <input name="semester" type="text" required="required">
-                            <span>Semester</span>
+                            <select name="semester" required="required" id="format">
+                                <option selected disabled>Choose a Semester</option>
+                                <option value="sem1">Semester-1</option>
+                                <option value="sem2">Semester-2</option>
+                                <option value="sem3">Semester-3</option>
+                                <option value="sem4">Semester-4</option>
+                                <option value="sem5">Semester-5</option>
+                                <option value="sem6">Semester-6</option>
+                                <option value="sem7">Semester-7</option>
+                                <option value="sem8">Semester-8</option>
+                            </select>
                             <i></i>
                         </div>
                     </div>
 
                     <div class="field-col">
                         <div class="inputBox">
-                            <input name="subject" type="text" required="required">
-                            <span>Subject</span>
+                            <select name="subject" type="text" required="required" id="format">
+                                <option selected disabled>Choose Subject</option>
+                                <option value="Applied Physics – I">Applied Physics – I</option>
+                                <option value="Mathematics – I">Mathematics – I</option>
+                                <option value="Basic Electrical Engineering">Basic Electrical Engineering</option>
+                                <option value="Engineering Graphics & Design">Engineering Graphics & Design</option>
+                                <option value="Applied Physics - 1 Lab">Applied Physics - 1 Lab</option>
+                                <option value="Basic Electrical Engineering Lab">Basic Electrical Engineering Lab</option>
+                                <option value="Engineering Graphics & Design Lab">Engineering Graphics & Design Lab</option>
+                                <option value="Essence of Indian Traditional  knowledge">Essence of Indian Traditional  knowledge</option>
+                                <option value="Applied Physics – II">Applied Physics – II</option>
+                                <option value="Mathematics – II">Mathematics – II </option>
+                                <option value="Programming for Problem Solving">Programming for Problem Solving</option>
+                                <option value="Workshop /Manufacturing Practices">Workshop /Manufacturing Practices</option>
+                                <option value="English Language">English Language</option>
+                                <option value="Applied Physics – II Lab">Applied Physics – II Lab</option>
+                                <option value="Programming for Problem Solving Lab">Programming for Problem Solving Lab</option>
+                                <option value="Workshop /Manufacturing Practices Lab">Workshop /Manufacturing Practices Lab</option>
+                                <option value="English Language Lab">English Language Lab</option>
+                                <option value="Basic Engineering Mechanics">Basic Engineering Mechanics</option>
+                                <option value="Environmental Sciences">Environmental Sciences</option>
+                                <option value="Analog Electronic Circuits">Analog Electronic Circuits</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Data structure & Algorithms">Data structure & Algorithms</option>
+                                <option value="Digital Electronics">Digital Electronics</option>
+                                <option value="IT Workshop (Sci Lab/MATLAB)">IT Workshop (Sci Lab/MATLAB)</option>
+                                <option value="Humanities-I (Effective Technical Communication)">Humanities-I (Effective Technical Communication)</option>
+                                <option value="Analog Electronic Circuits Lab">Analog Electronic Circuits Lab</option>
+                                <option value="Data structure & Algorithms Lab">Data structure & Algorithms Lab</option>
+                                <option value="Digital Electronics Lab">Digital Electronics Lab</option>
+                                <option value="IT Workshop (Sci Lab/MATLAB) Lab">IT Workshop (Sci Lab/MATLAB) Lab</option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+                                <option value="text"></option>
+
+                            </select>
                             <i></i>
                         </div>
                     </div>
 
                     <div class="field-col ">
                         <div class="inputBox">
-                            <input name="file" type="file" class="file" >
+                            <input type="file" name="file" class="file" >
                         </div>
                     </div>
                 </div>
