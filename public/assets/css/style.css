@@ -795,7 +795,7 @@ h6 {
   text-decoration: none;
 }
 .box .login_link ,.signup_link ,a:hover{
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-position: under;
 }
 
