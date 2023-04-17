@@ -23,7 +23,7 @@ exports.postAddNotesPage = (req,res,next)=>{
                 subject:subject,
                 file:file
             });
-            upload.single('file');
+            // upload.single('file');
             
             return notes.save();
         }
